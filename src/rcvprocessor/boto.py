@@ -24,7 +24,7 @@ logger = Logger(__name__).get()
 
 
 class KinesisVideoClient:
-    def __init__(self, stream_name, **kwargs):
+    def __init__(self, stream_name):
         self._stream_name = stream_name
         self._exit_stack = AsyncExitStack()
         self._kvs_client = None
@@ -51,7 +51,7 @@ class KinesisVideoClient:
 
 
 class KinesisVideoMediaClient:
-    def __init__(self, stream_name, **kwargs):
+    def __init__(self, stream_name):
         self._stream_name = stream_name
         self._exit_stack = AsyncExitStack()
         self._kvs_media_client = None

@@ -131,7 +131,9 @@ class Processor:
 
             async with LambdaClient() as lambda_client:
 
-                tasks = [asyncio.create_task(self._inference_coro(lambda_client, frame)) for frame in rcv_fragment.frames]
+                tasks = [
+                    asyncio.create_task(self._inference_coro(lambda_client, frame)) for frame in rcv_fragment.frames
+                ]
 
                 for task in tasks:
                     self._inference_tasks.add(task)
